@@ -2,7 +2,7 @@
  * @Author: linqibin
  * @Date: 2022-08-29 17:18:02
  * @LastEditors: linqibin
- * @LastEditTime: 2022-08-29 17:27:12
+ * @LastEditTime: 2022-09-01 10:44:38
  * @Description: 
  * 
  * Copyright (c) 2022 by 研发中心/金地楼宇, All Rights Reserved. 
@@ -26,7 +26,7 @@ const VR_Cube: React.FC<{
         const scene = new Scene()
         scene.add(mesh)
         const camera = new PerspectiveCamera(90, canvas.width/canvas.height, 0.01, 100)
-        camera.position.z = 0.01
+        camera.position.z = 0.001
         const renderer = new WebGLRenderer({canvas})
 
         const controls = new OrbitControls(camera, canvas)
