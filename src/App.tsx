@@ -2,7 +2,7 @@
  * @Author: linqibin
  * @Date: 2022-08-26 16:42:29
  * @LastEditors: linqibin
- * @LastEditTime: 2023-01-04 11:14:14
+ * @LastEditTime: 2023-01-06 11:25:59
  * @Description:
  *
  * Copyright (c) 2022 by 研发中心/金地楼宇, All Rights Reserved.
@@ -33,7 +33,7 @@ function App() {
     // <Galaxy/>
     // <Room/>
     // <Bridge/>
-    <Model gltf="coffee.gltf"/>
+    <Model gltf="LittlestTokyo.glb"/>
   )
 }
 
