@@ -2,7 +2,7 @@
  * @Author: linqibin
  * @Date: 2023-01-03 17:25:55
  * @LastEditors: linqibin
- * @LastEditTime: 2023-01-19 15:16:14
+ * @LastEditTime: 2023-01-19 16:37:58
  * @Description:
  *
  * Copyright (c) 2023 by 智慧空间研究院/金地空间科技, All Rights Reserved.
@@ -41,29 +41,26 @@ class Engine {
     return canvas;
   }
   initCamera(aspect: number) {
-    const camera = new PerspectiveCamera(
+    this.camera = new PerspectiveCamera(
       45,
       // canvas.width / canvas.height,
       aspect,
       0.01,
       1000
     );
-    camera.position.set(0, 5, 15);
-    camera.lookAt(0, 0, 0);
-    this.camera = camera;
-    return camera;
+    this.camera.position.set(0, 5, 15);
+    this.camera.lookAt(0, 0, 0);
+    return this.camera;
   }
   initControls(camera: Camera, canvas: HTMLElement) {
-    const controls = new OrbitControls(camera, canvas);
-    controls.target.set(0, 0.5, 0);
-    controls.update();
-    controls.enableDamping = true;
-    // controls.enableZoom = false;
-    controls.enablePan = false;
-    controls.enableDamping = true;
-    controls.rotateSpeed = 0.25;
-    this.controls = controls;
-    return controls;
+    this.controls = new OrbitControls(camera, canvas);
+    this.controls.target.set(0, 0.5, 0);
+    this.controls.update();
+    this.controls.enableDamping = true;
+    this.controls.enablePan = false;
+    this.controls.enableDamping = true;
+    this.controls.rotateSpeed = 0.25;
+    return this.controls
   }
   initStats() {
     // @ts-ignore
@@ -71,24 +68,22 @@ class Engine {
     document.body.appendChild(stats.dom);
   }
   initRenderer(canvas: HTMLCanvasElement | OffscreenCanvas) {
-    const renderer = new WebGLRenderer({ canvas, antialias: true });
+    this.renderer = new WebGLRenderer({ canvas, antialias: true });
     // renderer.setClearColor("#ffe793", 0.5);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.outputEncoding = sRGBEncoding;
-    this.renderer = renderer;
-    return renderer;
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.outputEncoding = sRGBEncoding;
+    return this.renderer;
   }
   initScene(renderer: WebGLRenderer) {
-    const scene = new Scene();
-    scene.background = new Color(0xbfe3dd);
+    this.scene = new Scene();
+    this.scene.background = new Color(0xbfe3dd);
     const pmremGenerator = new PMREMGenerator(renderer);
-    scene.environment = pmremGenerator.fromScene(
+    this.scene.environment = pmremGenerator.fromScene(
       new RoomEnvironment(),
       0.04
     ).texture;
-    this.scene = scene;
-    return scene;
+    return this.scene;
   }
   initLight() {
     const light = new AmbientLight(0xffffff, 1);

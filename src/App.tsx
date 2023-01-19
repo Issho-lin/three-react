@@ -2,7 +2,7 @@
  * @Author: linqibin
  * @Date: 2022-08-26 16:42:29
  * @LastEditors: linqibin
- * @LastEditTime: 2023-01-06 11:25:59
+ * @LastEditTime: 2023-01-19 17:02:56
  * @Description:
  *
  * Copyright (c) 2022 by 研发中心/金地楼宇, All Rights Reserved.
@@ -14,6 +14,7 @@ import { useEffect } from "react";
 // import Room from './components/room'
 import Bridge from "./components/bridge";
 import Model from "./components/model";
+import VR_Video from "./components/vr/video";
 // import { Button } from 'antd'
 // import { ProLayout } from '@ant-design/pro-components'
 // import ProLayout from '@ant-design/pro-layout'
@@ -33,7 +34,8 @@ function App() {
     // <Galaxy/>
     // <Room/>
     // <Bridge/>
-    <Model gltf="LittlestTokyo.glb"/>
+    // <Model gltf="LittlestTokyo.glb"/>
+    <VR_Video/>
   )
 }
 
